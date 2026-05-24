@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="idUser">
+    <button onclick="deleteUser()">Supprimer</button>
+    <script>
+        const api = 'https://670ed5b73e7151861655eaa3.mockapi.io/Stagiaire'
+    async function deleteUser(id){
+        // let id = document.querySelector('#idUser').value
+        fetch(`${api}/${id}`,{
+            method : "DELETE"
+        })
+        .then(res => {console.log(res)})
+    }
+    var sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    async function deleteAll(start, end) {
+    for (let i = start; i < end; i++) {
+        await sleep(600); // actually waits between each request
+
+        try {
+        const res = await fetch(`${api}/${i}`, { method: "DELETE" });
+
+        if (res.ok) {
+            console.log(`✅ Deleted user id: ${i}`);
+        } else {
+            console.warn(`⚠️ Not found or already deleted: ${i} (${res.status})`);
+        }
+
+        } catch (err) {
+        console.error(`💥 Error deleting ${i}:`, err.message);
+        }
+    }
+
+    console.log("🎉 Done!");
+    }
+    //deleteAll(100,102)
+
+
+
+
+    // ============================================================
+//  seed_users.js  —  POST 100 users to MockAPI
+//  - Skips users that already exist (checked by email)
+//  - 500ms delay between each POST to avoid rate limiting
+// ============================================================
+
+const API_URL = "https://670ed5b73e7151861655eaa3.mockapi.io/Stagiaire"; // <-- change this
+
+// ── DATA POOLS ───────────────────────────────────────────────
+const firstNames = [
+  "Mohamed","Ahmed","Fatima","Aicha","Youssef","Zineb","Omar","Salma",
+  "Hamza","Nadia","Karim","Sara","Anas","Hajar","Ilyas","Meryem",
+  "Soufiane","Loubna","Rachid","Imane","Bilal","Samira","Khalid","Nora",
+  "Mehdi","Rania","Adil","Houda","Tarik","Wafa","Saad","Hind",
+  "Younes","Asmae","Amine","Khadija","Zakaria","Malak","Hicham","Nawal",
+  "Othmane","Ghita","Mouad","Jamila","Nassim","Latifa","Reda","Siham",
+  "Badr","Amina","Ayoub","Oumaima","Driss","Hafsa","Ismail","Yasmine",
+  "Marouane","Souad","Anass","Laila","Taha","Btissam","Walid","Sanaa",
+  "Nabil","Fadwa","Achraf","Samia","Ryad","Wiam","Sami","Assia",
+  "Jalal","Najat","Oussama","Meriem","Faris","Rokia","Ziad","Dounia",
+  "Ayman","Naima","Yassine","Fatiha","Jawad","Rajae","Ezzedine","Safae",
+  "Monir","Chaima","Samir","Ghizlane","Hossam","Salwa","Mostafa","Naoual",
+  "Yahya","Ikram"
+];
+
+const lastNames = [
+  "Alaoui","Bennani","Chraibi","Fassi","Guessous","Hamdaoui","Idrissi","Jalil",
+  "Kettani","Lamrani","Mekouar","Naciri","Ouazzani","Qabbaj","Raissouni","Senhaji",
+  "Tahiri","Wahbi","Yazami","Zemmouri","Amrani","Bouazza","Chakir","Daoudi",
+  "Elalami","Filali","Ghali","Hammoudi","Iraqi","Jabri","Khalfi","Lahlou",
+  "Mansouri","Naji","Oujidi","Rahali","Sabir","Tazi","Wahid","Yahyaoui",
+  "Zouine","Belhaj","Chaoui","Darif","Ennaji","Fasouali","Ghazali","Habib",
+  "Imrani","Jadid","Kadiri","Lahbabi","Moudden","Naouri","Oubella","Rbii",
+  "Sefiani","Touil","Wazzani","Yaakoubi","Zejjari","Amzazi","Berrada","Chafik",
+  "Demiri","Errami","Ferhane","Gueddari","Hazim","Ismaili","Jouahri","Kacimi",
+  "Laaziri","Moussaoui","Naimi","Ouali","Ramdani","Squalli","Talbi","Yousfi",
+  "Zahiri","Arabi","Bouhali","Harrak","Jaafari","Kotti","Lamsiah","Mrini",
+  "Nbili","Ouhabi","Qorchi","Ryahi","Sekkat","Temsamani","Wahnou","Youssoufi",
+  "Zahraoui","Azzouzi","Barrada","Belkadi"
+];
+
+const countries = [
+  "Morocco","France","Spain","Canada","Belgium",
+  "Germany","Netherlands","Italy","Portugal","Switzerland"
+];
+const currencies = ["MAD","EUR","USD","GBP","CAD","CHF"];
+const colors = [
+  "#e74c3c","#3498db","#2ecc71","#f39c12","#9b59b6",
+  "#1abc9c","#e67e22","#34495e","#e91e63","#00bcd4",
+  "#8bc34a","#ff5722","#607d8b","#795548","#673ab7",
+  "#03a9f4","#4caf50","#ff9800","#f44336","#2196f3",
+  "#009688","#cddc39","#ffc107","#ff5252","#7c4dff",
+  "#00e676","#40c4ff","#ffab40","#69f0ae","#ea80fc"
+];
+
+// ── HELPERS ───────────────────────────────────────────────────
+sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+function makePassword(index) {
+  const bases    = ["Secure","Strong","Valid","Safe","Alpha","Beta","Delta","Omega","Prime","Flash"];
+  const specials = "!@#$%^&*";
+  const base    = bases[index % bases.length];
+  const digits  = String((index % 90) + 10);
+  const special = specials[index % specials.length];
+  return `${base}${digits}${special}`;
+}
+
+// ── BUILD 100 USERS ───────────────────────────────────────────
+function buildUsers() {
+  const users = [];
+  for (let i = 0; i < 100; i++) {
+    const prenom = firstNames[i % firstNames.length];
+    const nom    = lastNames [i % lastNames.length];
+    const pseudo = `${prenom.toLowerCase()}_${nom.toLowerCase().slice(0, 4)}${i + 1}`;
+    users.push({
+      nom,
+      age:        String(18 + (i % 22)),
+      admin:      i < 5,
+      MotDePasse: makePassword(i),
+      pseudo,
+      prenom,
+      couleur:    colors    [i % colors.length],
+      Devise:     currencies[i % currencies.length],
+      Pays:       countries [i % countries.length],
+      avatar:     "https://cdn-icons-png.flaticon.com/512/18290/18290762.png",
+      email:      `${pseudo}@gmail.com`,
+      photo:      "https://loremflickr.com/cache/resized/65535_52982474046_b9c18f817f_c_640_480_nofilter.jpg"
+    });
+  }
+  return users;
+}
+
+// ── MAIN ──────────────────────────────────────────────────────
+const DELAY_MS = 600; // ms between each POST — safe for MockAPI free tier
+
+(async () => {
+  // 1) fetch all existing emails to detect duplicates
+  console.log("🔍 Fetching existing users from MockAPI...");
+  let existingEmails = new Set();
+  try {
+    const res      = await fetch(API_URL);
+    const existing = await res.json();
+    existing.forEach((u) => { if (u.email) existingEmails.add(u.email); });
+    console.log(`   Found ${existingEmails.size} existing user(s). These will be skipped.\n`);
+  } catch (err) {
+    console.warn("   ⚠️  Could not fetch existing users:", err.message);
+  }
+
+  // 2) post only new users
+  const users  = buildUsers();
+  let posted   = 0;
+  let skipped  = 0;
+  let failed   = 0;
+
+  for (let i = 0; i < users.length; i++) {
+    const user = users[i];
+
+    // skip if already exists
+    if (existingEmails.has(user.email)) {
+      console.log(`⏭️  [${i + 1}/100] SKIP — already exists: ${user.email}`);
+      skipped++;
+      continue;
+    }
+
+    // wait before posting
+    await sleep(DELAY_MS);
+
+    try {
+      const res = await fetch(API_URL, {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify(user)
+      });
+
+      if (res.ok) {
+        const created = await res.json();
+        console.log(`✅ [${i + 1}/100] POSTED — ${user.pseudo} (id: ${created.id})`);
+        existingEmails.add(user.email); // prevent re-posting in same run
+        posted++;
+      } else {
+        const text = await res.text();
+        console.error(`❌ [${i + 1}/100] FAILED (${res.status}) — ${user.pseudo}: ${text}`);
+        failed++;
+
+        // if rate limited (429) → wait longer then retry once
+        if (res.status === 429) {
+          console.warn("   ⏳ Rate limited! Waiting 5s then retrying...");
+          await sleep(5000);
+          const retry = await fetch(API_URL, {
+            method:  "POST",
+            headers: { "Content-Type": "application/json" },
+            body:    JSON.stringify(user)
+          });
+          if (retry.ok) {
+            const created = await retry.json();
+            console.log(`   ♻️  RETRY OK — ${user.pseudo} (id: ${created.id})`);
+            existingEmails.add(user.email);
+            posted++;
+            failed--;
+          }
+        }
+      }
+    } catch (err) {
+      console.error(`💥 [${i + 1}/100] ERROR — ${user.pseudo}:`, err.message);
+      failed++;
+    }
+  }
+
+  console.log("\n─────────────────────────────");
+  console.log(`🎉 Done!`);
+  console.log(`   ✅ Posted  : ${posted}`);
+  console.log(`   ⏭️  Skipped : ${skipped}`);
+  console.log(`   ❌ Failed  : ${failed}`);
+  console.log("─────────────────────────────");
+})//();
+
+    </script>
+</body>
+</html>

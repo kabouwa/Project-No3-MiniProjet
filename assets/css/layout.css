@@ -1,0 +1,32 @@
+header{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+main{
+    min-height: 80vh;
+    margin-left: 250px;
+}
+aside{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    padding-top: 150px;
+}
+aside .nav-item{
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+}
+aside .nav-item:hover{
+    background-color: var(--success);
+    
+}
+nav .nav-item:hover{
+    background-color: var(--success);
+    border-top-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+}
+nav .nav-item:hover a{
+    color: white;
+}

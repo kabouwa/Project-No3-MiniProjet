@@ -1,0 +1,13 @@
+body{
+    background-color: var(--success);
+}
+.auth-box{
+    box-shadow: 1px 1px 20px var(--secondary);
+    max-width: 450px;
+}
+.form-control{
+    border-radius: 0 !important;
+}
+a{
+    text-decoration: none;
+}

@@ -1,0 +1,34 @@
+:root{
+    --success : rgb(70, 164, 70);
+    --secondary : rgba(112, 112, 112, 0.601);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 16px;
+    scrollbar-width: thin;
+    scrollbar-width: none;
+}
+body{
+    min-height: 100vh;
+}
+.bg-success{
+    background-color: var(--success) !important;
+}
+.text-success{
+    color: var(--success) !important;
+}
+#logo{
+    width: 70px;
+}
+.errors{
+    padding: 0;
+    /* width: 80%; */
+}
+.error{
+    list-style: none;
+    margin: 0;
+}

@@ -1,0 +1,19 @@
+body{
+    background-color: var(--success);
+}
+.auth-box{
+    box-shadow: 1px 1px 20px var(--secondary);
+}
+.form-control{
+    border-radius: 0 !important;
+}
+a{
+    text-decoration: none;
+}
+.errors{
+    padding: 0;
+}
+.error{
+    list-style: none;
+    margin: 0;
+}
