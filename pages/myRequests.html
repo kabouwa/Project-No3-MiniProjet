@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mini Projet JS - Liste Utilisateurs</title>
+    <title>Mini Projet JS - Mes Demandes</title>
+    <link rel="stylesheet" href="/assets/css/root.css">
     <link rel="stylesheet" href="/assets/css/layout.css">
  </head>
 <body>
@@ -19,27 +20,21 @@
 
     <main class="d-flex flex-column px-5">
         <p class="display-3 mt-3">
-            Liste Des utilisateurs
+            Mes Demandes
         </p>
         <table class="table table-hover table-users mt-3 mb-5">
             <thead>
-                <th>#</th>
-                <th>Pseudo</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Age</th>
-                <th>Pays</th>
-                <th>Devise</th>
-                <th>Email</th>
-                <th>Couleur</th>
-                <th>admin</th>
+                <th>Numero</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Date D'ajout</th>
+                <th>Status</th>
                 <th>Actions</th>
             </thead>
             <tbody>
-                <tr class="no-user-founded">
+                <tr class="no-req-founded">
                     <th colspan="11" class="my-5 py-5 text-center">
-                        <!-- Aucune utilisateurs trouvee ! -->
-                        Chargement des utilisateurs...
+                        Chargement des demandes...
                     </th>
                 </tr>
                 <!-- Chargement depuis JavaScript -->
@@ -56,6 +51,6 @@
     <script src="/assets/js/parts.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/layout.js"></script>
-    <script src="/assets/js/users.js"></script>
+    <script src="/assets/js/myRequests.js"></script>
 </body>
 </html>

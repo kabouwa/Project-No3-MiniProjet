@@ -19,32 +19,23 @@
 
     <main class="d-flex flex-column px-5">
         <p class="display-3 mt-3">
-            Liste Des utilisateurs
+            Liste Des Demandes
         </p>
-        <table class="table table-hover table-users mt-3 mb-5">
-            <thead>
-                <th>#</th>
-                <th>Pseudo</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Age</th>
-                <th>Pays</th>
-                <th>Devise</th>
-                <th>Email</th>
-                <th>Couleur</th>
-                <th>admin</th>
-                <th>Actions</th>
-            </thead>
-            <tbody>
-                <tr class="no-user-founded">
-                    <th colspan="11" class="my-5 py-5 text-center">
-                        <!-- Aucune utilisateurs trouvee ! -->
-                        Chargement des utilisateurs...
-                    </th>
-                </tr>
-                <!-- Chargement depuis JavaScript -->
-            </tbody>
-        </table>
+        <div id="reqs-table" class="mb-5">
+            <div class="row py-3 border-bottom">
+                <div class="col-1 fw-bold">#</div>
+                <div class="col-2 fw-bold">Utilisateur</div>
+                <div class="col-2 fw-bold">Titre</div>
+                <div class="col-3 fw-bold">Demande</div>
+                <div class="col-2 fw-bold">Date d'ajout</div>
+                <div class="col-2 fw-bold">Status</div>
+            </div>
+            <div class="row line1 py-3 border-bottom">
+                <div class="col py-5 text-center fw-bold">
+                    Chargement des demandes...
+                </div>
+            </div>           
+        </div>
     </main>
 
     <footer class="bg-dark">
@@ -56,6 +47,6 @@
     <script src="/assets/js/parts.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/layout.js"></script>
-    <script src="/assets/js/users.js"></script>
+    <script src="/assets/js/manageRequests.js"></script>
 </body>
 </html>

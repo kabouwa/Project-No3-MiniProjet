@@ -1,11 +1,11 @@
-async function updateColor(){
-    const res = await fetch(`${api}/${user.id}`, {
-        method : "PUT",
-        headers :  { "Content-Type" : "application/json" },
-        body : JSON.stringify(user)
-    })
-    const data = await res.json()
-}
+// async function updateColor(){
+//     const res = await fetch(`${api}/${user.id}`, {
+//         method : "PUT",
+//         headers :  { "Content-Type" : "application/json" },
+//         body : JSON.stringify(user)
+//     })
+//     const data = await res.json()
+// }
 
 function renderColor(){
     $('main').css('background-color',user.couleur)
@@ -32,6 +32,5 @@ if(!user.admin && +user.age<15){
         user.couleur = newColor
         saveUser()
         renderColor()
-        updateColor()
     })  
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mini Projet JS - Profile</title>
+    <link rel="stylesheet" href="../assets/css/layout.css">
+</head>
+<body>
+    <header class="container-fluid  bg-dark">
+        <!-- Chargemenet Depuis JS -->
+    </header>
+
+    <nav class="admin-navbar navbar bg-info">
+        <!-- Chargemenet Depuis JS -->
+    </nav>
+
+    <aside class="bg-dark">
+        <!-- Chargemenet Depuis JS -->
+    </aside>
+
+    <main class="d-flex flex-column px-5">
+        <p class="display-3 mt-3">
+            Ajouter Une Demande
+        </p>
+        <form method="POST" action="myRequests.html" class="request-form border p-3">
+            <div class="row py-3">
+                <div class="col-12 col-lg-6">
+                    <label class="form-label" for="titre">Titre :</label>
+                    <input class="form-control" name="titre" id="titre" type="text" placeholder="Titre">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <label class="form-label" for="demande">Contenu :</label>
+                    <textarea class="form-control" name="demande" id="demande"  placeholder="Votre demande..." style="height: 200px;"></textarea>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-12 col-lg-2">
+                    <button class="btn bg-success text-white w-100" type="submit" >Envoyer</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="errors"></ul>
+                </div>
+            </div>
+        </form>
+    </main>
+    
+
+    <footer class="bg-dark">
+        <!-- Chargemenet Depuis JS -->
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> 
+    <script src="/assets/js/parts.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/addRequest.js"></script>
+
+</body>
+</html>

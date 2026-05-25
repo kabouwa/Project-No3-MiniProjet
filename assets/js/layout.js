@@ -2,8 +2,23 @@ var user = sessionStorage.getItem('user')? JSON.parse(sessionStorage.getItem('us
 !user?location.href = '/':null
 user.avatar = 'https://cdn-icons-png.flaticon.com/512/18290/18290762.png'
 
-function saveUser(){
+async function getUser(){
+    const res = await fetch(`${api}/${user.id}`)
+    user = await res.json()
+    await saveUser()
+};getUser()
+
+
+
+async function saveUser(){
     sessionStorage.setItem('user',JSON.stringify(user))
+    const res = await fetch(`${api}/${user.id}`, {
+        method : "PUT",
+        headers :  { "Content-Type" : "application/json" },
+        body : JSON.stringify(user)
+    })
+    const data = await res.json()
+    return data
 }
 
 function renderParts(){
@@ -12,7 +27,7 @@ function renderParts(){
     //Logo
     $("#logo").attr('src',user.avatar)
     //Nom et prenom    
-    $("#user").html(`${user.nom[0].toUpperCase()+user.nom.slice(1)} ${user.prenom[0].toUpperCase()+user.prenom.slice(1)} ${user.admin==true?'<i class="fa-solid fa-user-shield text-warning"></i>':''}`)    
+    $("#user").html(`${user.prenom[0].toUpperCase()+user.prenom.slice(1)} ${user.nom[0].toUpperCase()+user.nom.slice(1)} ${user.admin==true?'<i class="fa-solid fa-user-shield text-warning"></i>':''}`)    
     //Navigation bar
     
     if(user.admin){
@@ -27,6 +42,6 @@ $(()=>{
     $("#logout").click(()=>{
         sessionStorage.removeItem('user')
         // localStorage.removeItem('remember')
-        location.reload()
+        location.href = '/'
     })
 })

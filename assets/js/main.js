@@ -94,6 +94,29 @@ async function validateInputs(f,itsUpdate=false){
         "email": f.get('email').trim().toLowerCase(),
         "avatar": "https://cdn-icons-png.flaticon.com/512/18290/18290762.png",
         "photo": "https://loremflickr.com/640/480/people",
+        "demandes":[]
     }
     return newUser
 }
+//Menu Button Logo
+$("#menu-toggler").click(e=>{
+    $('aside').toggleClass('d-none')
+    $('main').toggleClass('hidden-aside')
+})
+
+//Password toggler
+$(".password-toggler").html('<i class="fa-regular fa-eye"></i>')
+$(".password-toggler").addClass('btn')
+$(".password-toggler").click(e =>{
+    let type = e.target.previousElementSibling.type
+    switch (type){
+        case "text": 
+            e.target.previousElementSibling.type = "password"
+            $(".password-toggler").html('<i class="fa-regular fa-eye"></i>')
+            break
+        case "password":
+            e.target.previousElementSibling.type = "text"
+            $(".password-toggler").html('<i class="fa-regular fa-eye-slash"></i>')
+            break
+    }
+})

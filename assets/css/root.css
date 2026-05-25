@@ -10,7 +10,6 @@
 html{
     font-size: 16px;
     scrollbar-width: thin;
-    scrollbar-width: none;
 }
 body{
     min-height: 100vh;
@@ -21,9 +20,6 @@ body{
 .text-success{
     color: var(--success) !important;
 }
-#logo{
-    width: 70px;
-}
 .errors{
     padding: 0;
     /* width: 80%; */
@@ -31,4 +27,18 @@ body{
 .error{
     list-style: none;
     margin: 0;
+}
+.form-group{
+    position: relative;
+}
+.password-toggler{
+    position : absolute;
+    top: 14px;
+    right: 17px;
+}
+.password-toggler i{
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
 }

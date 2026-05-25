@@ -1,14 +1,15 @@
 !user.admin?location.href = '/pages/dashboard.html':null
 async function getUsers(){
     const res = await fetch(api)
-    const data = await res.json()
-    return data
+    let users = await res.json()
+    users = users.sort((a, b) =>+b.id - +a.id)
+    return users
 }
 
 async function renderUsers(){
     const users = await getUsers()
     if(!users.length){
-        $($(".no-user-founded").children().get(0)).text('Aucune utilisateurs trouvee !');
+        $($(".no-user-founded").children().get(0)).text('Aucune utilisateur trouvée !');
         return
     }
     $(".no-user-founded").remove();
