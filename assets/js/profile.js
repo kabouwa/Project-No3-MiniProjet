@@ -17,4 +17,10 @@ function renderProfile(){
         $(`#${key}`).val(userInformation[key])
     }
 }
-$(renderProfile)
+$(function (){
+    renderProfile()
+    setInterval(_=>{
+        getUser()
+        renderProfile()
+    },2000)
+})

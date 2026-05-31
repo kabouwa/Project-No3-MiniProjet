@@ -8,8 +8,6 @@ async function getUser(){
     await saveUser()
 };getUser()
 
-
-
 async function saveUser(){
     sessionStorage.setItem('user',JSON.stringify(user))
     const res = await fetch(`${api}/${user.id}`, {

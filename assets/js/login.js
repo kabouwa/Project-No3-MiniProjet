@@ -70,15 +70,12 @@ $("#login-form").submit(async (e)=>{
             ))
             :localStorage.removeItem('remember')
         }
-        toggleSubmit(false)
+        toggleSubmit(true)
         break
     }
     if(errors.length>0){
-
         renderErrors(errors)
     }else{
-        window.location.href = '/pages/dashboard.html'
+       window.location.href = '/pages/dashboard.html'
     }
-    
 });
-// "Vergie_Boehm","b5JYhZt2SXhedLJ")

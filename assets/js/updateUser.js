@@ -35,11 +35,11 @@ async function renderUpdateUser(){
 };renderUpdateUser()
 
 
-async function updateUser(newUser){
+async function updateUser(updatedUser){
     const res = await fetch(`${api}/${updateUserId}`,{
         method : "PUT",
         headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify(newUser)
+        body : JSON.stringify(updatedUser)
     })
     const data = await res.json()
     return data
@@ -54,6 +54,7 @@ $(".update-form").submit(async (e)=>{
     const f = new FormData(e.target)
     let newUser = await validateInputs(f,true)
     if(!newUser){
+        toggleSubmit(true)
         return
     }
     const response = await updateUser(newUser)
@@ -63,7 +64,7 @@ $(".update-form").submit(async (e)=>{
         errors.push("Impossible de modifier l'utilisateur pour le moment, veuillez réessayer plus tard !")
         renderErrors(errors)
     }
-    toggleSubmit(false)
+    toggleSubmit(true)
 })
 
 

@@ -25,5 +25,5 @@ $(".create-form").submit(async e=>{
     }else{
         location.href = '/pages/admin/users.html'
     }
-    toggleSubmit(false)
+    toggleSubmit(true)
 })

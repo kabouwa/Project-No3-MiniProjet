@@ -4,9 +4,11 @@ async function generateReqId(){
     const users = await res.json()
     let ids = []
     users.forEach(u=>{
-        u.demandes.forEach(d=>{
-            ids.push(d.id)
-        })
+        try{
+            u.demandes.forEach(d=>{
+                ids.push(d.id)
+            })
+        }catch(error){}
     })
     newId = Math.max(...ids) + 1
     return newId 
@@ -55,7 +57,7 @@ $(".request-form").submit(async e=>{
     }
     await saveUser()
     location.href = "/pages/myRequests.html"
-    toggleSubmit(false)
+    toggleSubmit(true)
 });
 
 

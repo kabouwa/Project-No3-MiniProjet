@@ -1,4 +1,4 @@
-function renderRequests(){
+function renderMyRequests(){
     if(user.admin){
         $("table").html('<p class="alert alert-danger">Vous etes un administrateur, vous n\'avez pas l\'access a cette page !</p>');
         return
@@ -36,11 +36,17 @@ function renderRequests(){
         $('.table-users').append(row)
     });
 
-};renderRequests()
-
+}
 $('.cancelBtn').click(async e=>{
     let delReqId = e.target.dataset.reqId    
     user.demandes =  user.demandes.filter(d=> d.id!=delReqId)
     await saveUser()
     location.reload()
 })
+
+renderMyRequests()
+setInterval(_=>{
+    getUser()
+    $('tbody').children().remove()
+    renderMyRequests()
+},2000)

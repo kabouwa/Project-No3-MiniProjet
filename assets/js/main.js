@@ -14,9 +14,14 @@ function removeErrors(){
     $(".error").remove()
 }
 
-function toggleSubmit(state=true){
+function toggleSubmit(state=false){
+    state = state===1 ? true : state
+    if(state!=true && state!=false){
+        console.error('toggleSubmit function must get in params a bool value !')
+        return
+    }
     const btn = $('[type="submit"]')
-    btn.prop('disabled',state)
+    btn.prop('disabled', !state)
     btn.toggleClass('bg-secondary')
     btn.toggleClass('bg-success')
 }
@@ -51,7 +56,7 @@ async function validateInputs(f,itsUpdate=false){
     }
     if(errors.length > 0){
         renderErrors(errors)
-        toggleSubmit(false)
+        toggleSubmit(true)
         return false
     }
     //Age
@@ -78,7 +83,7 @@ async function validateInputs(f,itsUpdate=false){
     }
     if(errors.length > 0){
         renderErrors(errors)
-        toggleSubmit(false)      
+        toggleSubmit(true)      
         return false
     }
     let newUser = {

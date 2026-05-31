@@ -6,11 +6,13 @@ async function getRequests(){
     let allRequests = []
 
     data.forEach(user =>{
-        user.demandes.forEach(req=>{
-            req['username'] = user.pseudo
-            req['userId'] = user.id
-            allRequests.push(req)
-        })
+        try{
+           user.demandes.forEach(req=>{
+                req['username'] = user.pseudo
+                req['userId'] = user.id
+                allRequests.push(req)
+            }) 
+        }catch(error){}
     });
     allRequests = allRequests.sort((a, b) =>+b.id - +a.id)
     return allRequests
@@ -82,3 +84,11 @@ async function renderRequests() {
     })
     await addEvents()
 };renderRequests()
+
+renderRequests()
+setInterval(_=>{
+    tableHead = $('.thead')
+    $('#reqs-table').children().remove()
+    $('#reqs-table').append(tableHead)
+    renderRequests()
+},10000)

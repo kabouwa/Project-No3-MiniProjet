@@ -48,5 +48,5 @@ $("#signup-form").submit(async (e)=>{
         location.href = '/'
     }
     
-    toggleSubmit(false)
+    toggleSubmit(true)
 });

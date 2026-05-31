@@ -15,23 +15,22 @@ async function renderUsers(){
     $(".no-user-founded").remove();
     users.forEach(u => {
         let row = $('<tr>',{class : "align-middle"})
-        row.html(`
-            <td class="fw-bold">${u.id}</td>
-            <td>${u.pseudo}</td>
-            <td>${u.nom}</td>
-            <td>${u.prenom}</td>
-            <td>${u.age}</td>
-            <td>${u.Pays}</td>
-            <td>${u.Devise}</td>
-            <td>${u.email}</td>
-            <td>${!u.couleur.startsWith("#")?u.couleur:`<input class="form-control p-1" type="color" value="${u.couleur}" disabled>` }</td>
-            <td>${u.admin?'Oui':'Non'}</td>
-            <td>
-                <a class="btn btn-warning modifier" href="/pages/admin/updateUser.html?userid=${u.id}">Modifier</a>
-            </td>`)        
-        $('.table-users').append(row)
+        try{
+            row.html(`
+                <td class="fw-bold">${u.id}</td>
+                <td>${u.pseudo}</td>
+                <td>${u.nom}</td>
+                <td>${u.prenom}</td>
+                <td>${u.age}</td>
+                <td>${u.Pays}</td>
+                <td>${u.Devise}</td>
+                <td>${u.email}</td>
+                <td>${!u.couleur.startsWith("#")?u.couleur:`<input class="form-control p-1" type="color" value="${u.couleur}" disabled>` }</td>
+                <td>${u.admin?'Oui':'Non'}</td>
+                <td>
+                    <a class="btn btn-warning modifier" href="/pages/admin/updateUser.html?userid=${u.id}">Modifier</a>
+                </td>`)        
+            $('.table-users').append(row)
+        }catch(error){}
     });
 };renderUsers()
-
-
-
