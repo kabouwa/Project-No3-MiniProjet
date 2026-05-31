@@ -5,8 +5,8 @@
         let credentials = JSON.parse(remember)
         $("#username").val(credentials.username)
         $("#password").val(credentials.password)
+        $("#remember").prop("checked",true)
     }
-    $("#remember").prop("checked",true)
 })()
 
 //Validation depuis API
