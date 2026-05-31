@@ -1,6 +1,5 @@
 //<a href="/pages/dashboard.html"><img src="" alt="logo" id="logo"></a>
 const head = `
-www
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/33/33308.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
