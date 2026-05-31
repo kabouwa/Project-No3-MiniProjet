@@ -6,6 +6,7 @@
         $("#username").val(credentials.username)
         $("#password").val(credentials.password)
     }
+    $("#remember").prop("checked",true)
 })()
 
 //Validation depuis API
