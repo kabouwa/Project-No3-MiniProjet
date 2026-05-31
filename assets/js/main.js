@@ -99,7 +99,10 @@ async function validateInputs(f,itsUpdate=false){
         "email": f.get('email').trim().toLowerCase(),
         "avatar": "https://cdn-icons-png.flaticon.com/512/18290/18290762.png",
         "photo": "https://loremflickr.com/640/480/people",
-        "demandes":[]
+        //"demandes":[]
+    }
+    if(!itsUpdate){
+        newUser.demandes = []
     }
     return newUser
 }

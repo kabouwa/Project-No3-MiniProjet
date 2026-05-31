@@ -7,6 +7,7 @@ $(".create-form").submit(async e=>{
     const f = new FormData(e.target)
     let newUser = await validateInputs(f)
     if(!newUser){
+        toggleSubmit(true)
         return
     }
     //Envoie nouveau utilisateur vers API (POST)

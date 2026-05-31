@@ -44,6 +44,7 @@ $("#login-form").submit(async (e)=>{
     }
     
     if(errors.length>0){
+        toggleSubmit(true)
         renderErrors(errors)
         return
     }
