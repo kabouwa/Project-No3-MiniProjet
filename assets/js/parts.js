@@ -7,9 +7,13 @@ const head = `
 <link rel="stylesheet" href="/assets/css/root.css">
 `
 const header = `
-<div class="container py-2 text-white d-flex justify-content-between">
-    <button class="btn" id="menu-toggler"><img src="" alt="logo" id="logo"></button>
+<div class="container-fluid text-white d-flex justify-content-between align-items-center py-2">
+    <div class="d-flex justify-content-between align-items-center">
+        <button id="menu-toggler"><i class="fa-solid fa-bars m-0" style="font-size: 1.4rem;"></i></button>
+        <p class="display-6 m-0" style="font-size: 1.7rem;">Mini Project JavaScript</p>
+    </div>
     <div class="user-info d-flex justify-content-end align-items-center gap-2">
+        <a href="/pages/profile.html"><img src="" alt="logo" id="logo"></a>
         <p class="m-0 fw-bold" id="user"></p>
         <button class="btn btn-danger" id="logout">Se Deconnecter</button>
     </div>

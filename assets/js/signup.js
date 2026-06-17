@@ -16,7 +16,6 @@
 //     }
 //     return newId
 // }
-
 //Event Submit
 $("#signup-form").submit(async (e)=>{   
     e.preventDefault()

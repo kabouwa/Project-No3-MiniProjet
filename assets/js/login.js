@@ -1,3 +1,6 @@
+if(sessionStorage.getItem('user')){
+    window.location.href = "/pages/dashboard.html";
+}
 //Remplir automatiquement
 (function (){
     let remember = localStorage.getItem('remember')

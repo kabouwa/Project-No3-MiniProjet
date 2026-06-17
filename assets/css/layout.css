@@ -4,11 +4,12 @@ header{
     z-index: 999;
 }
 #logo{
-    width: 70px;
+    width: 40px;
 }
 main{
     min-height: 80vh;
     margin-left: 250px;
+    transition: all 0.2s ease-in-out;
 }
 .hidden-aside{
     margin-left: 0 !important;
@@ -19,6 +20,8 @@ aside{
     bottom: 0;
     width: 250px;
     padding-top: 150px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 aside .nav-item{
     border-top-right-radius: 22px;
@@ -26,7 +29,6 @@ aside .nav-item{
 }
 aside .nav-item:hover{
     background-color: var(--success);
-    
 }
 nav .nav-item:hover{
     background-color: var(--success);
@@ -38,7 +40,17 @@ nav .nav-item:hover a{
 }
 @media screen and (max-width:700px){
     #logo{
-        width: 50px;
+        width: 30px;
     }
-    
+}
+#menu-toggler{
+    font-size: 1.4rem;
+    background-color: transparent;
+    border: none;
+    margin-right: 8px;
+    margin-top: 2px;
+    color: white;
+}
+#menu-toggler:active{
+    outline: none;
 }
