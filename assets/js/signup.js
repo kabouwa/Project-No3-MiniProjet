@@ -25,6 +25,7 @@ $("#signup-form").submit(async (e)=>{
     const f = new FormData(e.target)
     let newUser = await validateInputs(f)
     if(!newUser){
+        toggleSubmit(true)
         return
     }else{
         newUser.admin = false
@@ -46,6 +47,5 @@ $("#signup-form").submit(async (e)=>{
     }else{
         location.href = '/'
     }
-    
     toggleSubmit(true)
 });

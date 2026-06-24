@@ -56,7 +56,7 @@ async function validateInputs(f,itsUpdate=false){
     }
     if(errors.length > 0){
         renderErrors(errors)
-        toggleSubmit(true)
+        // toggleSubmit(true)
         return false
     }
     //Age
@@ -83,7 +83,7 @@ async function validateInputs(f,itsUpdate=false){
     }
     if(errors.length > 0){
         renderErrors(errors)
-        toggleSubmit(true)      
+        // toggleSubmit(true)      
         return false
     }
     let newUser = {
@@ -104,6 +104,7 @@ async function validateInputs(f,itsUpdate=false){
     if(!itsUpdate){
         newUser.demandes = []
     }
+    // toggleSubmit(true)
     return newUser
 }
 

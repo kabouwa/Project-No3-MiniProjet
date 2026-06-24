@@ -31,9 +31,10 @@ async function checkUser(username,password){
 }
 
 //Event Submit
-$("#login-form").submit(async (e)=>{    
+$("#login-form").submit(async (e)=>{   
     e.preventDefault()
     removeErrors()
+    toggleSubmit()
     let foundedUser = null
     let errors = []
     const username = $("#username").val()
@@ -54,7 +55,6 @@ $("#login-form").submit(async (e)=>{
     }
 
     //Api fetching
-    toggleSubmit()
     for(let i=1; i<=3; i++){
         foundedUser = await checkUser(username,password)
         if(foundedUser==-1){

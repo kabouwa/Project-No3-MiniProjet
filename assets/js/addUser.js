@@ -2,6 +2,7 @@ const params = new URLSearchParams(location.search)
 if(!user.admin)location.href = '/pages/dashboard'
 
 $(".create-form").submit(async e=>{
+    toggleSubmit()
     e.preventDefault()
     let errors = []
     const f = new FormData(e.target)
