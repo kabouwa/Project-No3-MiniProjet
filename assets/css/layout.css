@@ -16,14 +16,14 @@ main{
     transition: all 0.2s ease-in-out;
 }
 .hidden-aside{
-    margin-left: 0 !important;
+    margin-left: 50px !important;
 }
 aside{
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 0px;
-    opacity: 0;
+    width: 50px;
+    opacity: 1;
     padding-top: 150px;
     overflow: hidden;
     white-space: nowrap;
@@ -31,12 +31,17 @@ aside{
 aside .nav-item{
     border-top-right-radius: 32px;
     border-bottom-right-radius: 32px;
-    margin-right: 5px;
+    /* margin-right: 2px; */
 }
 
 aside .nav-item:hover{
     background-color: var(--primary);
     
+}
+aside i{
+    margin-right: 20px;
+    margin-left: 2px;
+    font-size: 1.2rem;
 }
 nav .nav-item{
     border: solid 1px rgba(0, 0, 0, 0.1);
@@ -66,8 +71,7 @@ nav .nav-item:hover a{
     font-size: 1.4rem;
     background-color: transparent;
     border: none;
-    margin-right: 8px;
-    margin-top: 2px;
+    margin: 2px 15px 0 5px;
     color: white;
 }
 #menu-toggler:active{

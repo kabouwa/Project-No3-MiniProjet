@@ -106,23 +106,6 @@ async function validateInputs(f,itsUpdate=false){
     }
     return newUser
 }
-//Menu Button Logo
-$("#menu-toggler").click(async e=>{
-    const a = $('aside')
-    if(a.css('opacity') === '0'){
-        await a.animate({
-            width : "250px",
-            opacity : "1"
-        },200)
-        await $('main').removeClass("hidden-aside")
-    }else{
-        await a.animate({
-            width : "0px",
-            opacity : "0"
-        },200)
-        await $('main').addClass("hidden-aside")
-    }
-})
 
 //Password toggler
 $(".password-toggler").html('<i class="fa-regular fa-eye"></i>')

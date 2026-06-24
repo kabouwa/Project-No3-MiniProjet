@@ -43,3 +43,19 @@ $(()=>{
         location.href = '/'
     })
 })
+
+//Menu Button
+$("#menu-toggler").click(async e=>{
+    const a = $('aside')
+    if(a.css('width') === '50px'){
+        await a.animate({
+            width : "250px",
+        },200)
+        await $('main').removeClass("hidden-aside")
+    }else{
+        await a.animate({
+            width : "50px",
+        },200)
+        await $('main').addClass("hidden-aside")
+    }
+})

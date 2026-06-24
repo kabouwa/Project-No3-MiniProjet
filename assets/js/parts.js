@@ -7,7 +7,7 @@ const head = `
 <link rel="stylesheet" href="/assets/css/root.css">
 `
 const header = `
-<div class="container-fluid text-white d-flex justify-content-between align-items-center py-2">
+<div class="text-white d-flex justify-content-between align-items-center py-2">
     <div class="d-flex justify-content-between align-items-center">
         <button id="menu-toggler"><i class="fa-solid fa-bars m-0" style="font-size: 1.4rem;"></i></button>
         <a href="/pages/dashboard.html" class="display-6 m-0 text-decoration-none text-white title">Mini Project JavaScript</a>
@@ -37,19 +37,19 @@ const navbar = `
 const aside = `
 <ul class="p-1">
     <li class="nav-item">
-        <a href="/pages/dashboard.html " class="nav-link text-white px-2 py-3 my-3">Accueil</a>
+        <a href="/pages/dashboard.html " class="nav-link text-white px-2 py-3 my-3"><i class="fas fa-home"></i> Accueil</a>
     </li>
     <li class="nav-item">
-        <a href="/pages/profile.html" class="nav-link text-white px-2 py-3 my-3">Profile</a>
+        <a href="/pages/profile.html" class="nav-link text-white px-2 py-3 my-3"><i class="fas fa-user"></i> Profile</a>
     </li>
     <li class="nav-item">
-        <a href="/pages/changeColor.html" class="nav-link text-white px-2 py-3 my-3">Modifier Couleur</a>
+        <a href="/pages/changeColor.html" class="nav-link text-white px-2 py-3 my-3"><i class="fas fa-palette"></i> Modifier Couleur</a>
     </li> 
     <li class="nav-item">
-        <a href="/pages/myRequests.html" class="nav-link text-white px-2 py-3 my-3">Mes Demandes</a>
+        <a href="/pages/myRequests.html" class="nav-link text-white px-2 py-3 my-3"><i class="fas fa-list"></i> Mes Demandes</a>
     </li> 
     <li class="nav-item">
-        <a href="/pages/addRequest.html" class="nav-link text-white px-2 py-3 my-3">Ajouter Une Demande</a>
+        <a href="/pages/addRequest.html" class="nav-link text-white px-2 py-3 my-3"><i class="fas fa-plus-circle"></i> Ajouter Une Demande</a>
     </li> 
 </ul>
 `
