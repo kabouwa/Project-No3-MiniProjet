@@ -9,6 +9,7 @@
 
 function renderColor(){
     $('main').css('background-color',user.couleur)
+    
     if(!user['couleur'].startsWith("#")){
         let field = $('#couleur')
         field.attr('type','text')
@@ -19,11 +20,12 @@ function renderColor(){
 }
 
 //Main
-if(!user.admin && +user.age<15){
-   $('.user-info').remove()
+if(+user.age<15){
+   $('.color-form').remove()
 }else{
    $(".invalid-user").remove()
     renderColor()
+    
     $("#modifierCouleur").click(async (e)=>{
         const newColor = $('#nouvelleCouleur').val()
         if(user.couleur === newColor){

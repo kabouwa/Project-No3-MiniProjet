@@ -32,6 +32,7 @@ async function renderUpdateUser(){
     if(u.admin){
         $("#isAdmin").prop("checked",true)
     }
+    $("#id").text(u.id)
 };renderUpdateUser()
 
 
@@ -59,7 +60,7 @@ $(".update-form").submit(async (e)=>{
     }
     const response = await updateUser(newUser)
     if(response){
-        location.href = '/pages/admin/users.html'
+        location.href = '/pages/admin/user.html?userid=' + updateUserId
     }else{
         errors.push("Impossible de modifier l'utilisateur pour le moment, veuillez réessayer plus tard !")
         renderErrors(errors)
@@ -71,10 +72,12 @@ $(".update-form").submit(async (e)=>{
 //Delete
 $("#delBtn").click(()=>{
     $(".confirm-delete").removeClass("d-none")
+    $(".confirm-delete").fadeIn("medium")
 })
 
-$("#cancelDel").click(()=>{
-    $(".confirm-delete").addClass("d-none")
+$("#cancelDel").click(async ()=>{
+    await $(".confirm-delete").fadeOut("medium")
+    await $(".confirm-delete").addClass("d-none")
 })
 $(".delete-form ").submit(async e=>{
     e.preventDefault()

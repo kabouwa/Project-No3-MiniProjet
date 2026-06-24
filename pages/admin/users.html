@@ -11,7 +11,7 @@
         <!-- Chargemenet Depuis JS -->
     </header>
 
-    <nav class="admin-navbar navbar bg-info">
+    <nav class="admin-navbar navbar bg-light">
         <!-- Chargemenet Depuis JS -->
     </nav>
 
@@ -19,32 +19,34 @@
         <!-- Chargemenet Depuis JS -->
     </aside>
 
-    <main class="d-flex flex-column px-5">
+    <main class="d-flex flex-column px-5 hidden-aside">
         <p class="display-3 mt-3">
             Liste Des utilisateurs
         </p>
-        <table class="table table-hover table-users mt-3 mb-5">
+        <div class="input-group">
+            <p class="input-group-text m-0">Chercher : </p>
+            <input type="text" class="form-control" placeholder="id nom prenom..." id="search">
+        </div>
+        <table class="table table-hover mt-3 mb-5">
             <thead>
-                <th>#</th>
-                <th>Pseudo</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Age</th>
-                <th>Pays</th>
-                <th>Devise</th>
-                <th>Email</th>
-                <th>Couleur</th>
-                <th>admin</th>
-                <th>Actions</th>
+                <tr>
+                  <th>#</th>
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Pseudo</th>
+                  <th>Email</th>
+                  <th>Admin</th>
+                  <th>Actions</th>  
+                </tr>
             </thead>
-            <tbody>
-                <tr class="no-user-founded">
+            <tbody id="table-users">
+                <!-- Chargement depuis JavaScript -->
+                 <tr>
                     <th colspan="11" class="my-5 py-5 text-center">
                         <!-- Aucune utilisateurs trouvee ! -->
                         Chargement des utilisateurs...
                     </th>
                 </tr>
-                <!-- Chargement depuis JavaScript -->
             </tbody>
         </table>
     </main>

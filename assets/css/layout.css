@@ -3,9 +3,13 @@ header{
     top: 0;
     z-index: 999;
 }
+header .title{
+    font-size: 1.4rem;
+}
 #logo{
     width: 40px;
 }
+
 main{
     min-height: 80vh;
     margin-left: 250px;
@@ -18,29 +22,44 @@ aside{
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 250px;
+    width: 0px;
+    opacity: 0;
     padding-top: 150px;
     overflow: hidden;
     white-space: nowrap;
 }
 aside .nav-item{
-    border-top-right-radius: 22px;
-    border-bottom-right-radius: 22px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    margin-right: 5px;
 }
+
 aside .nav-item:hover{
-    background-color: var(--success);
+    background-color: var(--primary);
+    
 }
+nav .nav-item{
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+}
+
 nav .nav-item:hover{
-    background-color: var(--success);
-    border-top-left-radius: 22px;
-    border-bottom-right-radius: 22px;
+    background-color: var(--primary);
 }
 nav .nav-item:hover a{
     color: white;
 }
+
+
 @media screen and (max-width:700px){
     #logo{
         width: 30px;
+    }
+    header .title{
+        font-size: 1rem;
+    }
+    #user{
+        font-size: 0.7rem;
     }
 }
 #menu-toggler{

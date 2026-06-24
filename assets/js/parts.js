@@ -10,44 +10,46 @@ const header = `
 <div class="container-fluid text-white d-flex justify-content-between align-items-center py-2">
     <div class="d-flex justify-content-between align-items-center">
         <button id="menu-toggler"><i class="fa-solid fa-bars m-0" style="font-size: 1.4rem;"></i></button>
-        <p class="display-6 m-0" style="font-size: 1.7rem;">Mini Project JavaScript</p>
+        <a href="/pages/dashboard.html" class="display-6 m-0 text-decoration-none text-white title">Mini Project JavaScript</a>
     </div>
     <div class="user-info d-flex justify-content-end align-items-center gap-2">
-        <a href="/pages/profile.html"><img src="" alt="logo" id="logo"></a>
-        <p class="m-0 fw-bold" id="user"></p>
+        <a href="/pages/profile.html" class="text-decoration-none text-white">
+            <img src="" alt="logo" id="logo">
+            <span class="fw-bold" id="user"></span>
+        </a>
         <button class="btn btn-danger" id="logout">Se Deconnecter</button>
     </div>
 </div>
 `
 const navbar = `
-<ul class="navbar-nav container flex-row justify-content-center gap-1">
-    <li class="nav-item px-3">
-        <a href="/pages/admin/users.html" class="nav-link">Gérer Les Utilisateurs</a>
+<ul class="navbar-nav container flex-row justify-content-center gap-2">
+    <li class="nav-item">
+        <a href="/pages/admin/users.html" class="nav-link px-3">Gérer Les Utilisateurs</a>
     </li>
-    <li class="nav-item px-3">
-        <a href="/pages/admin/addUser.html" class="nav-link">Ajouter Un Utilisateur</a>
+    <li class="nav-item">
+        <a href="/pages/admin/addUser.html" class="nav-link px-3">Ajouter Un Utilisateur</a>
     </li>
-    <li class="nav-item px-3">
-        <a href="/pages/admin/manageRequests.html" class="nav-link">Gérer Les Demandes</a>
+    <li class="nav-item">
+        <a href="/pages/admin/manageRequests.html" class="nav-link px-3">Gérer Les Demandes</a>
     </li>
 </ul>
 `
 const aside = `
 <ul class="p-1">
-    <li class="nav-item px-2 py-3 my-3">
-        <a href="/pages/dashboard.html" class="nav-link text-white">Accueil</a>
+    <li class="nav-item">
+        <a href="/pages/dashboard.html " class="nav-link text-white px-2 py-3 my-3">Accueil</a>
     </li>
-    <li class="nav-item px-2 py-3 my-3">
-        <a href="/pages/profile.html" class="nav-link text-white">Profile</a>
+    <li class="nav-item">
+        <a href="/pages/profile.html" class="nav-link text-white px-2 py-3 my-3">Profile</a>
     </li>
-    <li class="nav-item px-2 py-3 my-3">
-        <a href="/pages/changeColor.html" class="nav-link text-white">Modifier Couleur</a>
+    <li class="nav-item">
+        <a href="/pages/changeColor.html" class="nav-link text-white px-2 py-3 my-3">Modifier Couleur</a>
     </li> 
-    <li class="nav-item px-2 py-3 my-3">
-        <a href="/pages/myRequests.html" class="nav-link text-white">Mes Demandes</a>
+    <li class="nav-item">
+        <a href="/pages/myRequests.html" class="nav-link text-white px-2 py-3 my-3">Mes Demandes</a>
     </li> 
-    <li class="nav-item px-2 py-3 my-3">
-        <a href="/pages/addRequest.html" class="nav-link text-white">Ajouter Une Demande</a>
+    <li class="nav-item">
+        <a href="/pages/addRequest.html" class="nav-link text-white px-2 py-3 my-3">Ajouter Une Demande</a>
     </li> 
 </ul>
 `
@@ -56,7 +58,7 @@ const footer = `
     <div class="row align-items-center justify-content-between g-3">
         
         <div class="col-12 col-md-6 text-center text-md-start text-secondary">
-            <p class="mb-1 fw-bold text-white">Mini Projet JavaScript</p>
+            <p class="mb-1 fw-bold text-white">Mini Projet JavaScript développé par Mohammed Rahali</p>
             <p><i class="bi bi-geo-alt-fill text-success me-2"></i>ISTA HaySalam, Sale, Maroc</p>
         </div>
         <div class="col-12 col-md-6 text-center d-flex justify-content-end">
@@ -68,7 +70,7 @@ const footer = `
         </div>
         
     </div>
-    <p class="text-center text-light mt-3">&copy; 2026 ISTA HaySalam(dev104). Tous droits réservés.</p>
+    <p class="text-center text-light mt-3">&copy; ${new Date().getFullYear()} ISTA HaySalam(dev104). Tous droits réservés.</p>
 </div>
 `
 
