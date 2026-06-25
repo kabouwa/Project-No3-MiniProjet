@@ -58,13 +58,23 @@ nav .nav-item:hover a{
 
 @media screen and (max-width:700px){
     #logo{
-        width: 30px;
+        width: 22px; 
     }
     header .title{
-        font-size: 1rem;
+        font-size: 0.8rem;
+        margin-top: 0px;
     }
     #user{
+        font-size: 0.4rem;
+    }
+    nav .nav-link{
+        padding: 5px 8px !important;
         font-size: 0.7rem;
+    }
+    #logout{
+       font-size: 0.5rem;
+
+       padding: 5px 8px !important;
     }
 }
 #menu-toggler{
@@ -83,3 +93,4 @@ nav .nav-item:hover a{
     font-optical-sizing: auto;
     font-weight: 400;
 }
+

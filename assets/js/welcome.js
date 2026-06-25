@@ -1,4 +1,4 @@
-const nom = user.nom;
+const nom = user.prenom;
 const type = user.admin ? "administrateur" : "utilisateur"
 const templates = [
     `Bonjour ${nom}, vous êtes connecté en tant que ${type} !`,

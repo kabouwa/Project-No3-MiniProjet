@@ -42,19 +42,25 @@ async function validUsername(username){
 
 async function validateInputs(f,itsUpdate=false){
     let errors = []
-    //Validations 
-    if(f.get('nom').trim().length<3 
-    || f.get('prenom').trim().length<3 
-    || f.get('pays').trim().length<3 
-    || +f.get('age')<0 
-    || +f.get('age')>100 
-    || !f.get('devise').trim().length
-    || f.get('email').trim().length<4 
-    || f.get('username').trim().length < 3
-    || f.get('password').trim().length < 1
-    ){
-        errors.push('Remplir tous les champs !')
+    //Validations
+    try{
+        if(f.get('nom').trim().length<3 
+        || f.get('prenom').trim().length<3 
+        || f.get('pays').trim().length<3 
+        || !f.get('age').trim().length
+        || +f.get('age')<0 
+        || +f.get('age')>100 
+        || !f.get('devise').length
+        || f.get('email').trim().length<4 
+        || f.get('username').trim().length < 3
+        || f.get('password').trim().length < 1
+        ){
+            errors.push('Remplir tous les champs !')
+        }
+    }catch(error){
+        errors.push('Les champs sont invalide !')
     }
+
     if(errors.length > 0){
         renderErrors(errors)
         // toggleSubmit(true)

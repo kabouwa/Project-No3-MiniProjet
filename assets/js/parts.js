@@ -17,7 +17,7 @@ const header = `
             <img src="" alt="logo" id="logo">
             <span class="fw-bold" id="user"></span>
         </a>
-        <button class="btn btn-danger" id="logout">Se Deconnecter</button>
+        <button class="btn btn-outline-danger text-light" id="logout">Se Deconnecter</button>
     </div>
 </div>
 `
