@@ -13,21 +13,21 @@ function renderUsers(){
     let s = $("#search").val().trim().toLowerCase();
     let filtredUsers = !s.length 
     ? users 
-    : typeof s == "number"
-    ? users.filter( u => u.id == s )
     : (s === "oui" || s === "non")
     ? users.filter( u =>
         (u.admin && s ==="oui")
         || (!u.admin && s ==="non")
     )
     :users.filter( u =>
-        u.nom.toLowerCase().includes(s)
+        u.id == s
+        || u.nom.toLowerCase().includes(s)
         || u.prenom.toLowerCase().includes(s)
         || u.pseudo.toLowerCase().includes(s)
         || u.email.toLowerCase().includes(s)
     )
     
     $("#table-users").empty();
+    $("#nb-users").val(filtredUsers.length)
     if(!filtredUsers.length){
         $("#table-users").html(
             `<tr>

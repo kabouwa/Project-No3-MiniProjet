@@ -1,17 +1,18 @@
 const api = 'https://670ed5b73e7151861655eaa3.mockapi.io/Stagiaire'
 
+// My tools 
+const removeErrors = _ =>{ $(".error").remove() }
+
 function renderErrors(errors){
     removeErrors()
-    errors.forEach(e => {        
-        let errorBlock = $('<li>',{
-            class : "error alert alert-danger my-2",
-            text : e,
-        })
-        $('.errors').append(errorBlock)
-    });
-}
-function removeErrors(){
-    $(".error").remove()
+    $('.errors').html(errors.map(err => `<li class="error alert alert-danger my-2">${err}</li>`))
+    $('.error').css({
+        opacity : "0",
+        scale : "0.9"
+    }).animate({
+        opacity : "1",
+        scale : "1"
+    })
 }
 
 function toggleSubmit(state=false){

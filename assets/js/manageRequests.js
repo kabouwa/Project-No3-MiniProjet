@@ -48,9 +48,17 @@ async function addEvents(){
         let ReqId = e.target.dataset.reqId
         let newStatus = e.target.value
         
+        let classColor = newStatus === 'En attente' ? '-warning' 
+                    : newStatus === 'Approuvée' ? '-success' 
+                    : '-danger';
+
         e.target.classList.remove("bg-danger","bg-warning","bg-success")
-        e.target.classList.add(newStatus==='En attente'?"bg-warning":newStatus==='Approuvée'?"bg-success":"bg-danger")
-        
+        $(e.target).addClass(`bg${classColor}`)
+
+        let card = $(e.target).closest('.card');
+        card.removeClass('border-warning border-success border-danger');
+        card.addClass(`border${classColor}`);
+
         await updateStatus(userId,ReqId,newStatus)
     })
 }
@@ -58,37 +66,40 @@ async function addEvents(){
 async function renderRequests() {
     let requests = await getRequests()
     if(!requests.length){
-        $($('.line1').children().get(0)).text('Aucune demandes trouvée !')
+        $('#not-found').text('Aucune demandes trouvée !')
         return
     }
-    $('.line1').remove()    
-    requests.forEach(req=>{
-        let row = $('<div>',{
-            class : "row py-3 border-bottom",
-        })
-        row.html(`
-            <div class="col-1">${req.id}</div>
-            <div class="col-2">${req.username}</div>
-            <div class="col-3">${req.titre}</div>
-            <div class="col-2">${req.demande}</div>
-            <div class="col-2">${req.dateAjout}</div>
-            <div class="col-2">
-                <select name="status" data-req-id="${req.id}" data-user-id="${req.userId}" class="status form-select text-white w-75 bg-${req.status==='En attente'?"warning":req.status==='Approuvée'?"success":"danger"}">
+
+    // Affichage Cards
+    $("#reqs-cards").html(
+        requests.map(req => `
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 my-3">
+    <div class="card border-start border-4 mb-2 h-100 border-${req.status==='En attente'?"warning":req.status==='Approuvée'?"success":"danger"}">
+        <div class="card-body pb-2">
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <h6 class="card-title mb-1">
+                        <span class="badge bg-secondary me-2">#${req.id}</span>${req.username}
+                    </h6>
+                    <h5 class="mb-1"><small >${req.titre}</small></h5>
+                    <p class="mb-1"><small class="text-muted">${req.demande}</small></p>
+                    <p class="mb-0"><small class="text-muted">${req.dateAjout}</small></p>
+                </div>
+                <select name="status" data-req-id="${req.id}" data-user-id="${req.userId}" class="status form-select form-select-sm text-white bg-${req.status==='En attente'?"warning":req.status==='Approuvée'?"success":"danger"}" style="width: 150px;"  >
                     <option value="En attente" ${req.status==='En attente'?"selected":''}>En attente</option>
                     <option value="Approuvée"  ${req.status==='Approuvée' ?"selected":''}>Approuvée</option>
                     <option value="Rejectée"    ${req.status==='Rejectée' ?"selected":''}>Rejectée</option>
                 </select>
             </div>
-        `)
-        $('#reqs-table').append(row)
-    })
+        </div>
+    </div>  
+</div>
+        `).join("")
+    )
     await addEvents()
-};renderRequests()
+}
 
 renderRequests()
 setInterval(_=>{
-    tableHead = $('.thead')
-    $('#reqs-table').children().remove()
-    $('#reqs-table').append(tableHead)
     renderRequests()
 },10000)

@@ -77,3 +77,9 @@ nav .nav-item:hover a{
 #menu-toggler:active{
     outline: none;
 }
+
+#welcome-message{
+    font-family: "Anthropic Serif", Georgia, "Arial Hebrew", "Noto Sans Hebrew", "Times New Roman", Times, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", "Hiragino Sans", "Yu Gothic", Meiryo, "Noto Sans CJK JP", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans CJK KR", serif;;
+    font-optical-sizing: auto;
+    font-weight: 400;
+}
